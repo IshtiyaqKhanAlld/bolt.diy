@@ -15,11 +15,12 @@ import globalStyles from './styles/index.scss?url';
 import xtermStyles from '@xterm/xterm/css/xterm.css?url';
 
 import 'virtual:uno.css';
+import { GenXApp } from './genx/GenXApp';
 
 export const links: LinksFunction = () => [
   {
     rel: 'icon',
-    href: '/favicon.svg',
+    href: '/genx-favicon.svg', // href: '/favicon.svg',
     type: 'image/svg+xml',
   },
   { rel: 'stylesheet', href: reactToastifyStyles },
@@ -42,10 +43,9 @@ export const links: LinksFunction = () => [
 ];
 
 const inlineThemeCode = stripIndents`
-  setTutorialKitTheme();
-
-  function setTutorialKitTheme() {
-    let theme = localStorage.getItem('bolt_theme');
+  setGenXTheme();
+  function setGenXTheme() {
+    let theme = localStorage.getItem('genx_theme'); // Changed from 'bolt_theme'
 
     if (!theme) {
       theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -53,6 +53,17 @@ const inlineThemeCode = stripIndents`
 
     document.querySelector('html')?.setAttribute('data-theme', theme);
   }
+  // setTutorialKitTheme();
+    
+  // function setTutorialKitTheme() {
+  //   let theme = localStorage.getItem('bolt_theme');
+
+  //   if (!theme) {
+  //     theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  //   }
+
+  //   document.querySelector('html')?.setAttribute('data-theme', theme);
+  // }
 `;
 
 export const Head = createHead(() => (
@@ -113,9 +124,17 @@ export default function App() {
       });
   }, []);
 
-  return (
-    <Layout>
-      <Outlet />
-    </Layout>
-  );
+  // Only change needed!
+const OriginalApp = () => (
+  <Layout>
+    <Outlet />
+  </Layout>
+);
+
+  return <GenXApp OriginalApp={OriginalApp} />;  
+  // return (
+  //   <Layout>
+  //     <Outlet />
+  //   </Layout>
+  // );
 }

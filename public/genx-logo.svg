@@ -1,0 +1,31 @@
+const genxLogoSVG = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <defs>
+    <linearGradient id="genxLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff94;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0099ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff0099;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Icon part -->
+  <rect x="5" y="10" width="40" height="40" rx="8" fill="url(#genxLogoGradient)" filter="url(#glow)"/>
+  <path d="M15 25 L25 20 L35 25 L30 30 L35 35 L25 40 L15 35 L20 30 Z" fill="#fff" opacity="0.9"/>
+  <circle cx="25" cy="30" r="4" fill="#000" opacity="0.1"/>
+  <text x="25" y="34" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">X</text>
+  
+  <!-- Text part -->
+  <text x="55" y="35" font-family="JetBrains Mono, monospace" font-size="18" fill="url(#genxLogoGradient)" font-weight="bold" filter="url(#glow)">GenX</text>
+  <text x="110" y="35" font-family="JetBrains Mono, monospace" font-size="18" fill="#666" font-weight="300">.code</text>
+  
+  <!-- Subtle code brackets -->
+  <text x="50" y="25" font-family="JetBrains Mono, monospace" font-size="12" fill="#333" opacity="0.5">&lt;</text>
+  <text x="170" y="45" font-family="JetBrains Mono, monospace" font-size="12" fill="#333" opacity="0.5">/&gt;</text>
+</svg>`;
