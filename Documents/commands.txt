@@ -1,0 +1,2 @@
+## Git commit command promot ###
+git commit --no-verify -m "Add GenX wrapper with minimal changes, system with complete override functionality"
